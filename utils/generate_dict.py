@@ -1,6 +1,5 @@
 import os
 import pickle
-from ..config import config
 
 def generate_dict():
     save_folder = '.\\dictionary'#vscode运行时当前文件夹为utils的上一级文件夹，如果运行时当前文件夹为utils则需修改save_folder，下面的data同理

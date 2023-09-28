@@ -17,7 +17,7 @@ def train():
         current_epoch, model_name = log.read().split()
         current_epoch = int(current_epoch)
 
-    dataset = train_Dataset(config.TEST_IMG_PATH, config.TEST_LABEL_PATH)
+    dataset = train_Dataset(config.TRAIN_IMG_PATH, config.TRAIN_LABEL_PATH)
     dataloader = DataLoader(dataset, batch_size=config.BATCH_SIZE, shuffle=True, collate_fn=collate_fn)
     
     model = CRNN(3000).to(config.DEVICE) #整个数据集一共约2700个不同字符，因此此处只分配3000个

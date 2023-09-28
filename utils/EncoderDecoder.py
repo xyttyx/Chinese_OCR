@@ -22,13 +22,14 @@ class EncoderDecoder():
         else:
             self.i2c_dict = None
 
-    def StringEncode(self, string:str):
+    def StringEncode(self, string:str)->torch.Tensor:
         assert self.c2i_dict is not None
         enc = torch.zeros(len(string), dtype = torch.int32)
         for i in range(len(string)):
             enc[i] = self.c2i_dict[string[i]]
         return enc
-    def StringDecode(self, enc:torch.Tensor|list):
+    
+    def StringDecode(self, enc:torch.Tensor|list)->str:
         assert self.i2c_dict is not None
         string = str()
         for i in range(len(enc)):
@@ -39,7 +40,7 @@ class EncoderDecoder():
                 string += self.i2c_dict[key]
         return string
     
-    def TensorDecode(self,probs:torch.Tensor): #(T C)
+    def TensorDecode(self,probs:torch.Tensor)->str: #(T C)
         assert self.i2c_dict is not None
         T, C = probs.size()
         enc = torch.zeros(T, dtype=torch.int32)
