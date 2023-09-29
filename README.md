@@ -22,6 +22,6 @@ Chinese_OCR_data
 开始训练
 
 # 测试方式
-使用evaluate.py，会使用测试集中的数据进行评估。评估所输出的accuracy计算公式如下  
-*accuracy = average(1 - 编辑距离/标签字符串长度)*  
-编辑距离的定义和计算方式可自行搜索，实现方式放在util.editDistance之中  
+使用evaluate.py，会使用测试集中的数据进行评估。评估所输出的accuracy计算公式如下
+***accuracy = average(1 - 编辑距离/标签字符串长度)***
+编辑距离的定义和计算方式可自行搜索，实现方式放在util.editDistance之中
