@@ -30,8 +30,8 @@ def evaluate():
     accuracy_list = list()
     infer_time_list = list()
     for inputs, labels, in tqdm(dataloader,'evaluate processing') :
-        a = random.randint(1, 10000)
-        if a % 5 != 0:
+        a = random.randint(1, 1000000)
+        if a % 100 != 0:
             continue
         #-------#
         begin_time = time.process_time_ns() 
@@ -47,7 +47,7 @@ def evaluate():
 
     accuracy = sum(accuracy_list)/len(accuracy_list)
     infer_time_ns = sum(infer_time_list)/len(infer_time_list)
-    print(f'Accuracy: {accuracy * 100}%, average infer time: {infer_time_ns/10000000}ms')
+    print(f'Accuracy: {accuracy}, average infer time: {infer_time_ns/10000000}ms')
     return
 
 if __name__ == '__main__':

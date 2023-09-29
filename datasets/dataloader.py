@@ -7,7 +7,7 @@ from utils.EncoderDecoder import EncoderDecoder
 from config import C2I_PATH, I2C_PATH
 
 train_transform = transforms.Compose([
-    transforms.Resize((32, 256)),  # 将图像调整为32x256尺寸
+    transforms.Resize((128, 1024)),  # 将图像调整为128x1024尺寸
     transforms.ToTensor(),
     transforms.Normalize((0.5,), (0.5,))
 ])

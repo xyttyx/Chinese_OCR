@@ -10,18 +10,21 @@ from torch.utils.data import DataLoader
 
 from models import CRNN
 from utils import EncoderDecoder
+from evaluate import evaluate
 import config
 
 def train():
+    '''   
     with open(config.TRAIN_LOG,'r') as log:
         current_epoch, model_name = log.read().split()
         current_epoch = int(current_epoch)
-
+    '''
+    current_epoch = 0
     dataset = train_Dataset(config.TRAIN_IMG_PATH, config.TRAIN_LABEL_PATH)
     dataloader = DataLoader(dataset, batch_size=config.BATCH_SIZE, shuffle=True, collate_fn=collate_fn)
     
     model = CRNN(3000).to(config.DEVICE) #整个数据集一共约2700个不同字符，因此此处只分配3000个
-    model.load_state_dict(torch.load(os.path.join(config.MODEL_SAVE_PATH, model_name)))
+    #model.load_state_dict(torch.load(os.path.join(config.MODEL_SAVE_PATH, model_name)))
     criterion = nn.CTCLoss()
     optimizer = optim.AdamW(model.parameters(), lr=0.002, weight_decay=1e-5)
     
@@ -38,6 +41,7 @@ def train():
             loss.backward()
             optimizer.step()
         torch.save(model.state_dict(),os.path.join(config.MODEL_SAVE_PATH, f'CRNN_3000CLASS_EPOCH{current_epoch + config.TRAIN_EPOCH}.pth'))
+        
     return
 
 if __name__ == '__main__':

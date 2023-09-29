@@ -2,7 +2,7 @@ import os
 import torch
 
 CURRENT_EPOCH = 0
-TRAIN_EPOCH = 10
+TRAIN_EPOCH = 20
 BATCH_SIZE = 64
 
 DATA_PATH = os.path.abspath('..\\Chinese_OCR_data\\datasets')
