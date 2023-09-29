@@ -35,7 +35,7 @@ class EncoderDecoder():
         for i in range(len(enc)):
             key = int(enc[i])
             if key == 0 or key > len(self.i2c_dict):
-                string += '-'
+                string += '#'
             else:
                 string += self.i2c_dict[key]
         return string
@@ -55,4 +55,4 @@ class EncoderDecoder():
             if c != tmp_string[i]:
                 c = tmp_string[i]
                 string += c
-        return string.replace('-', '')
+        return string.replace('#', '')

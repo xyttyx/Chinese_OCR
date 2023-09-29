@@ -19,14 +19,15 @@ def train():
         current_epoch, model_name = log.read().split()
         current_epoch = int(current_epoch)
     '''
-    current_epoch = 0
+    model_name = 'CRNN_epoch40.pth'
+    current_epoch = 40
     dataset = train_Dataset(config.TRAIN_IMG_PATH, config.TRAIN_LABEL_PATH)
     dataloader = DataLoader(dataset, batch_size=config.BATCH_SIZE, shuffle=True, collate_fn=collate_fn)
     
     model = CRNN(3000).to(config.DEVICE) #整个数据集一共约2700个不同字符，因此此处只分配3000个
-    #model.load_state_dict(torch.load(os.path.join(config.MODEL_SAVE_PATH, model_name)))
+    model.load_state_dict(torch.load(os.path.join(config.MODEL_SAVE_PATH, model_name)))
     criterion = nn.CTCLoss()
-    optimizer = optim.AdamW(model.parameters(), lr=0.002, weight_decay=1e-5)
+    optimizer = optim.Adam(model.parameters(), lr=0.0009, betas=(0.9,0.999), eps=1e-8, weight_decay=1e-5)
     
     for epoch in range(current_epoch + 1, current_epoch + 1 + config.TRAIN_EPOCH):
         for inputs, labels, len_labels in tqdm(dataloader,f'epoch:{epoch}'):
@@ -40,8 +41,11 @@ def train():
             loss = criterion(outputs, labels, len_seq, len_labels)
             loss.backward()
             optimizer.step()
-        torch.save(model.state_dict(),os.path.join(config.MODEL_SAVE_PATH, f'CRNN_3000CLASS_EPOCH{current_epoch + config.TRAIN_EPOCH}.pth'))
-        
+        if epoch % 5 == 0:
+            torch.save(model.state_dict(),os.path.join(config.MODEL_SAVE_PATH, f'CRNN_epoch{epoch}.pth'))
+            print(f'Model has been saved')
+            evaluate(model=model)
+
     return
 
 if __name__ == '__main__':

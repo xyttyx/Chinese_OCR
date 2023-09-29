@@ -5,10 +5,10 @@ from .layer import CNNLayer, BiLSTMLayer, MobileNetV3
 class CRNN(nn.Module):
     def __init__(self, num_classes):
         super(CRNN,self).__init__()
-        # self.cnn = CNNLayer()
-        self.cnn = MobileNetV3('small')
+        self.cnn = CNNLayer()
+        #self.cnn = MobileNetV3('small')
 
-        self.lstm_input_size = 640
+        self.lstm_input_size = 512
         self.lstm_hidden_size = 512
         self.lstm = BiLSTMLayer(self.lstm_input_size, self.lstm_hidden_size, 2, num_classes)
 

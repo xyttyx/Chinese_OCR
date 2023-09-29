@@ -2,8 +2,8 @@ import os
 import torch
 
 CURRENT_EPOCH = 0
-TRAIN_EPOCH = 20
-BATCH_SIZE = 64
+TRAIN_EPOCH = 100
+BATCH_SIZE = 32
 
 DATA_PATH = os.path.abspath('..\\Chinese_OCR_data\\datasets')
 TRAIN_IMG_PATH = os.path.join(DATA_PATH, 'Train_images') 
