@@ -3,7 +3,7 @@
 
 # 训练方式
 请在当前工程文件夹的上一级文件夹中，创建数据集文件夹，默认文件夹名称为**Chinese_OCR_data**。此文件夹默认结构如下  
-{
+```
 Chinese_OCR_data  
   |--datasets  
   |    |--Test_images  
@@ -11,7 +11,7 @@ Chinese_OCR_data
   |    |--Train_images  
   |    |--Train_label  
   |--model   
-}
+```
 
 请确认图片文件夹和标签文件夹下图片与标签名称相同，内容对应。
 请注意，默认标签为.txt文件，图片为.jpg文件。如果使用HWBD2.x数据集，则可以使用utils下的trans_dgrl.py将.dgrl文件分离为图片和标签。
