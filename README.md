@@ -1,7 +1,7 @@
 # Chinese_OCR
 手写中文文本行识别，使用CRNN+CTC，在HWBD2.x数据集上accuracy达到**0.95**
 
-#训练方式
+# 训练方式
 请在当前工程文件夹的上一级文件夹中，创建数据集文件夹，默认文件夹名称为**Chinese_OCR_data**。此文件夹默认结构如下
 >Chinese_OCR_data
 >  |--datasets
@@ -18,7 +18,7 @@
 `python train.py`
 开始训练
 
-#测试方式
+# 测试方式
 使用evaluate.py，会使用测试集中的数据进行评估。评估所输出的accuracy计算公式如下
 *accuracy = average(1 - 编辑距离/标签字符串长度)*
 编辑距离的定义和计算方式可自行搜索，实现方式放在util.editDistance之中
