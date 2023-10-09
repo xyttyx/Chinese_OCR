@@ -23,5 +23,3 @@ class CRNN(nn.Module):
         output = self.lstm(x)
         output = self.log_softmax(output)
         return output
-
-

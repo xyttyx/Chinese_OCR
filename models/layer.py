@@ -57,6 +57,7 @@ class CNNLayer(nn.Module):
         x = self.conv_4(x)
         return x
     
+
 class MobileNetV3(nn.Module):
     #暂定输入图像为
     def __init__(self,mode:str):
@@ -183,7 +184,7 @@ class MobileNetV3Block(nn.Module):
         if self.in_channels == self.out_channels and self.stride == 1:
             out += x
         return out
-  
+
 class BiLSTMLayer(nn.Module):
     def __init__(self, input_size, hidden_size, num_layers, out_length):
         super(BiLSTMLayer, self).__init__()

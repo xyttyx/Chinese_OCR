@@ -27,7 +27,7 @@ def train():
     model = CRNN(3000).to(config.DEVICE) #整个数据集一共约2700个不同字符，因此此处只分配3000个
     model.load_state_dict(torch.load(os.path.join(config.MODEL_SAVE_PATH, model_name)))
     criterion = nn.CTCLoss()
-    optimizer = optim.Adam(model.parameters(), lr=0.0009, betas=(0.9,0.999), eps=1e-8, weight_decay=1e-5)
+    optimizer = optim.Adam(model.parameters(), lr=0.001, betas=(0.9,0.999), eps=1e-8, weight_decay=1e-5)
     
     for epoch in range(current_epoch + 1, current_epoch + 1 + config.TRAIN_EPOCH):
         for inputs, labels, len_labels in tqdm(dataloader,f'epoch:{epoch}'):
