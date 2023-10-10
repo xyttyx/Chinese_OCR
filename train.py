@@ -19,7 +19,7 @@ def train():
         current_epoch, model_name = log.read().split()
         current_epoch = int(current_epoch)
     '''
-    model_name = 'CRNN_epoch40.pth'
+    model_name = 'CRNN_epoch80.pth'
     current_epoch = 40
     dataset = train_Dataset(config.TRAIN_IMG_PATH, config.TRAIN_LABEL_PATH)
     dataloader = DataLoader(dataset, batch_size=config.BATCH_SIZE, shuffle=True, collate_fn=collate_fn)
