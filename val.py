@@ -11,3 +11,7 @@ from torch.utils.data import DataLoader
 from models import CRNN
 from utils import EncoderDecoder
 import config
+
+def val():
+    
+    return
