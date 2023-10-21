@@ -17,7 +17,7 @@ C2I_DICT_NAME = 'c2i_dict.pkl'
 I2C_PATH = os.path.join(DICT_PATH, I2C_DICT_NAME) 
 C2I_PATH = os.path.join(DICT_PATH, C2I_DICT_NAME) 
 
-MODEL_SAVE_PATH = os.path.abspath('..\\Chinese_OCR_data\\models')
+MODEL_SAVE_PATH = os.path.abspath('.\\models\\save')
 TRAIN_LOG = os.path.abspath('..\\Chinese_OCR_data\\models\\train_log')
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
