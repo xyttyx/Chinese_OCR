@@ -26,7 +26,7 @@ class EncoderDecoder():
         assert self.c2i_dict is not None
         enc = torch.zeros(len(string), dtype = torch.int32)
         for i in range(len(string)):
-            enc[i] = self.c2i_dict[string[i]]
+            enc[i] = self.c2i_dict[string[i]] if string[i] in self.c2i_dict.keys() else 0
         return enc
     
     def StringDecode(self, enc:torch.Tensor|list)->str:

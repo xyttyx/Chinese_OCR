@@ -59,8 +59,8 @@ def update_dict(c2i_dict: dict, i2c_dict: dict):
 
 
 def generate_list_string():
-    data_folder_path = '.\\data'
-    txt_folder_name = 'HWDB2.1Test_label'
+    data_folder_path = '..\\Chinese_OCR_data\\datasets'
+    txt_folder_name = 'Train_label'
     txt_folder_path = os.path.join(data_folder_path, txt_folder_name)
     list_string = list()
     for _0, _1, files in os.walk(txt_folder_path):
