@@ -141,6 +141,10 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
+# Deep learning models
+.pth 
+.pt
+
 # Cython debug symbols
 cython_debug/
 
