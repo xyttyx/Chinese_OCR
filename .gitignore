@@ -142,8 +142,9 @@ dmypy.json
 .pytype/
 
 # Deep learning models
-.pth 
-.pt
+/models/save
+*.pth 
+*.pt
 
 # Cython debug symbols
 cython_debug/
